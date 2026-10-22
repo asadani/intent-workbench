@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id":"active-member-private","inputs":{"role":"member","active_membership":true,"visibility":"private"},"expected":{"outcome":"allow","review_status":"confirmed","reviewer":"Product and engineering"}},
+    {"id":"guest-link","inputs":{"role":"guest","active_membership":true,"visibility":"link"},"expected":{"outcome":"allow","review_status":"confirmed","reviewer":"Product and engineering"}},
+    {"id":"editor-inactive-conflict","inputs":{"role":"editor","active_membership":false,"visibility":"private"},"expected":{"outcome":"deny","review_status":"confirmed","reviewer":"Product and engineering","note":"v2 resolves this conflict"}},
+    {"id":"member-missing-membership","inputs":{"role":"member","visibility":"private"},"expected":{"outcome":"allow","review_status":"confirmed","reviewer":"Product and engineering"}},
+    {"id":"guest-private-uncovered","inputs":{"role":"guest","active_membership":true,"visibility":"private"},"expected":null},
+    {"id":"member-link","inputs":{"role":"member","active_membership":true,"visibility":"link"},"expected":{"outcome":"allow","review_status":"proposed","note":"Candidate only"}},
+    {"id":"member-inactive","inputs":{"role":"member","active_membership":false,"visibility":"private"},"expected":{"outcome":"deny","review_status":"confirmed","reviewer":"Product and engineering"}}
+  ]
+}

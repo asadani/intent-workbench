@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "id": "document-sharing",
+  "title": "Document sharing decision table",
+  "revision": "v2",
+  "inputs": [
+    {
+      "name": "role",
+      "type": "enum",
+      "values": [
+        "member",
+        "guest",
+        "editor"
+      ]
+    },
+    {
+      "name": "active_membership",
+      "type": "boolean"
+    },
+    {
+      "name": "visibility",
+      "type": "enum",
+      "values": [
+        "private",
+        "link"
+      ]
+    }
+  ],
+  "outcomes": [
+    "allow",
+    "deny"
+  ],
+  "rules": [
+    {
+      "id": "member-active-private",
+      "when": {
+        "role": {
+          "eq": "member"
+        },
+        "active_membership": {
+          "eq": true
+        },
+        "visibility": {
+          "eq": "private"
+        }
+      },
+      "outcome": "allow",
+      "review_status": "confirmed",
+      "rationale": "Active members may view private documents."
+    },
+    {
+      "id": "member-active-link",
+      "when": {
+        "role": {
+          "eq": "member"
+        },
+        "active_membership": {
+          "eq": true
+        },
+        "visibility": {
+          "eq": "link"
+        }
+      },
+      "outcome": "allow",
+      "review_status": "confirmed"
+    },
+    {
+      "id": "guest-link",
+      "when": {
+        "role": {
+          "eq": "guest"
+        },
+        "visibility": {
+          "eq": "link"
+        }
+      },
+      "outcome": "allow",
+      "review_status": "confirmed"
+    },
+    {
+      "id": "active-link-share",
+      "when": {
+        "active_membership": {
+          "eq": true
+        },
+        "visibility": {
+          "eq": "link"
+        }
+      },
+      "outcome": "allow",
+      "review_status": "confirmed",
+      "rationale": "Link visibility and active membership intentionally overlap role-specific allow rules."
+    },
+    {
+      "id": "editor-active-view",
+      "when": {
+        "role": {
+          "eq": "editor"
+        },
+        "active_membership": {
+          "eq": true
+        }
+      },
+      "outcome": "allow",
+      "review_status": "confirmed"
+    },
+    {
+      "id": "inactive-member-deny",
+      "when": {
+        "active_membership": {
+          "eq": false
+        }
+      },
+      "outcome": "deny",
+      "review_status": "confirmed"
+    }
+  ]
+}
