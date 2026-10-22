@@ -17,3 +17,6 @@ intent-workbench = "intent_workbench.__main__:main"
 
 [tool.setuptools.packages.find]
 include = ["intent_workbench*"]
+
+[tool.setuptools.package-data]
+"*" = ["web/*.css", "web/*.js", "assets/*.css", "assets/*.js", "*.css", "*.js", "*.json"]
