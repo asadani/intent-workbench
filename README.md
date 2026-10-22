@@ -2,6 +2,10 @@
 
 Intent Workbench evaluates a small confirmed decision table against explicit inputs. It shows when rules resolve, need missing facts, conflict, or leave a case uncovered. The document-sharing fixture includes a deliberate v1 conflict and a v2 revision that resolves it.
 
+## Requirements
+
+Python 3.11 or newer runs the CLI without third-party Python dependencies. JavaScript checks in the development test suite also require Node.js; local verification used Node.js 26.12.0. Opening the generated HTML needs a JavaScript-capable browser.
+
 ## Quickstart
 
 Run from this repository directory with Python 3.11 or newer:
