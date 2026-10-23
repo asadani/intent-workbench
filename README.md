@@ -1,4 +1,6 @@
-![Intent Workbench](assets/logo.svg)
+<p align="center">
+  <img src="assets/logo.svg" alt="Intent Workbench — Make behavior explicit" width="400" height="160">
+</p>
 
 Intent Workbench evaluates a small confirmed decision table against explicit inputs. It shows when rules resolve, need missing facts, conflict, or leave a case uncovered. The document-sharing fixture includes a deliberate v1 conflict and a v2 revision that resolves it.
 
