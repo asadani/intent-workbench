@@ -53,3 +53,7 @@ Rules use only equality, membership, integer lower/upper bounds, and AND across 
 HTML exports require numeric literals within JavaScript’s safe integer range, and interactive numeric inputs use the same range. The Python evaluator retains exact integer arithmetic. Output reports cannot overwrite their model or cases inputs.
 
 See [verification coverage](docs/VERIFICATION.md) and [the design plan](docs/PLAN.md) for tested behavior and remaining limits.
+
+## License
+
+Licensed under the [MIT License](LICENSE). Copyright (c) 2026 Anuj Sadani.
